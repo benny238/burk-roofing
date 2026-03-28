@@ -16,7 +16,7 @@ export async function POST(request: Request) {
     }
 
     await resend.emails.send({
-      from: "Burk Roofing Website <onboarding@resend.dev>",
+      from: "Burk Roofing Website <noreply@burkroofing.com>",
       to: ["info@burkroofing.com", "gary@burkroofing.com"],
       subject: `New Inspection Request from ${name}`,
       html: `
