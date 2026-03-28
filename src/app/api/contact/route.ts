@@ -1,4 +1,7 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
@@ -12,36 +15,29 @@ export async function POST(request: Request) {
       );
     }
 
-    // In production, integrate with an email service (e.g., Resend, SendGrid, Nodemailer)
-    // For now, log the submission and return success
-    console.log("--- New Contact Form Submission ---");
-    console.log("Name:", name);
-    console.log("Phone:", phone);
-    console.log("Email:", email);
-    console.log("Address:", address);
-    console.log("Service:", service);
-    console.log("Message:", message);
-    console.log("To: info@burkroofing.com");
-    console.log("-----------------------------------");
-
-    // TODO: Add email integration
-    // Example with Resend:
-    // await resend.emails.send({
-    //   from: 'Burk Roofing Website <noreply@burkroofing.com>',
-    //   to: 'info@burkroofing.com',
-    //   subject: `New Inspection Request from ${name}`,
-    //   html: `<p><strong>Name:</strong> ${name}</p>
-    //          <p><strong>Phone:</strong> ${phone}</p>
-    //          <p><strong>Email:</strong> ${email}</p>
-    //          <p><strong>Address:</strong> ${address}</p>
-    //          <p><strong>Service:</strong> ${service}</p>
-    //          <p><strong>Message:</strong> ${message}</p>`,
-    // });
+    await resend.emails.send({
+      from: "Burk Roofing Website <onboarding@resend.dev>",
+      to: "info@burkroofing.com",
+      subject: `New Inspection Request from ${name}`,
+      html: `
+        <h2>New Inspection Request</h2>
+        <table style="border-collapse:collapse;width:100%;max-width:500px;">
+          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Name</td><td style="padding:8px;border-bottom:1px solid #eee;">${name}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Phone</td><td style="padding:8px;border-bottom:1px solid #eee;">${phone}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Email</td><td style="padding:8px;border-bottom:1px solid #eee;">${email || "Not provided"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Address</td><td style="padding:8px;border-bottom:1px solid #eee;">${address || "Not provided"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold;border-bottom:1px solid #eee;">Service</td><td style="padding:8px;border-bottom:1px solid #eee;">${service || "Not specified"}</td></tr>
+          <tr><td style="padding:8px;font-weight:bold;">Message</td><td style="padding:8px;">${message || "None"}</td></tr>
+        </table>
+        <p style="color:#999;font-size:12px;margin-top:20px;">Sent from burkroofing.com contact form</p>
+      `,
+    });
 
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (error) {
+    console.error("Contact form error:", error);
     return NextResponse.json(
-      { error: "Failed to process submission." },
+      { error: "Failed to send. Please call (210) 214-0476." },
       { status: 500 }
     );
   }
