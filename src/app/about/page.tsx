@@ -73,37 +73,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Family */}
-      <section className="bg-light-gray py-20 lg:py-28">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl lg:text-4xl font-bold text-charcoal mb-6">
-                Family First. Always.
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                Burk Roofing is a family operation in the truest sense. It&apos;s not just a
-                business — it&apos;s a legacy in the making. The values that guide this company
-                are the same ones being passed down at the dinner table.
-              </p>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Work hard. Be honest. Take care of people. Leave things better than you found
-                them. These aren&apos;t just company values — they&apos;re family values. And
-                they show up in every interaction, every project, and every handshake.
-              </p>
-            </div>
-            <div className="relative rounded-2xl h-80 lg:h-96 overflow-hidden">
-              <Image
-                src="/images/burk-family.jpg"
-                alt="The Burk family in the Texas Hill Country"
-                fill
-                className="object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Values */}
       <section className="py-20 lg:py-28">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

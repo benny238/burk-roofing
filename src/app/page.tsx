@@ -202,36 +202,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAMILY SECTION */}
-      <section className="py-20 lg:py-28">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 relative rounded-2xl h-80 lg:h-96 overflow-hidden">
-              <Image
-                src="/images/burk-family.jpg"
-                alt="The Burk family in the Texas Hill Country"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <h2 className="text-3xl lg:text-4xl font-bold text-charcoal mb-6">
-                This Company Is Bigger Than Roofing
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-4">
-                At the end of the day, this is about legacy. It&apos;s about building something
-                your family can be proud of. It&apos;s about showing your kids what it looks like
-                to work hard, keep your word, and serve others well.
-              </p>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                That&apos;s what drives Burk Roofing. Not the bottom line &mdash; but the people
-                behind it and the responsibility to do things the right way, every single time.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* PROCESS */}
       <section className="bg-charcoal text-white py-20 lg:py-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
